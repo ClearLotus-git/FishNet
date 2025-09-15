@@ -1,0 +1,14 @@
+{
+    "from": "attacker@evil.com",
+    "to": [
+        "victim@company.com"
+    ],
+    "subject": "Fake Invoice",
+    "urls": [],
+    "attachments": [
+        {
+            "filename": "invoice.pdf",
+            "sha256": "5d788ab69f6f8065372505cdd3a45d4348f6a086b28d980f799b929a9cd95f15"
+        }
+    ]
+}

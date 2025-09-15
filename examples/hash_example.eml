@@ -1,0 +1,19 @@
+From: attacker@evil.com
+To: victim@company.com
+Subject: Fake Invoice
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY"
+
+--BOUNDARY
+Content-Type: text/plain
+
+Please see the attached invoice.
+
+--BOUNDARY
+Content-Type: application/pdf; name="invoice.pdf"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="invoice.pdf"
+
+U29tZSBmYWtlIGluY29pY2UgY29udGVudA==
+
+--BOUNDARY--

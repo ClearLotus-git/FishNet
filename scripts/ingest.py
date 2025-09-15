@@ -3,21 +3,22 @@ import sys, os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from fishnet.parser import parse_email
-from fishnet.graph import build_graph
-
+from fishnet.visualize import ascii_visualize
+from fishnet.exporter import export_report   # NEW
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: python ingest.py <email_file.eml>")
+        print("Usage: python -m scripts.ingest <email_file.eml>")
         return
 
     file_path = sys.argv[1]
     email_data = parse_email(file_path)
-    graph = build_graph(email_data)
 
     print("\n=== FishNet Graph ===")
-    for edge in graph.edges(data=True):
-        print(f"{edge[0]} --{edge[2]['relation']}--> {edge[1]}")
+    ascii_visualize(email_data)
 
-if __name__ == "__main__":
+    # Save full report with full hashes
+    export_report(email_data, filename=os.path.basename(file_path) + ".json")
+
+if __name__ == "__main__":   # <-- must be 'if', not 'i'
     main()

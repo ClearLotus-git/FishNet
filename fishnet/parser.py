@@ -3,26 +3,14 @@ import email
 from email import policy
 from email.parser import BytesParser
 import re
+import hashlib
 
 def parse_email(file_path):
-    try:
-        with open(file_path, "rb") as f:
-            msg = BytesParser(policy=policy.default).parse(f)
-    except Exception as e:
-        print(f"[!] Error parsing email: {e}")
-        return {
-            "from": None,
-            "to": [],
-            "subject": None,
-            "urls": [],
-            "attachments": []
-        }
+    with open(file_path, "rb") as f:
+        msg = BytesParser(policy=policy.default).parse(f)
 
-    # From / To
     sender = msg["From"] if msg["From"] else "Unknown"
     recipients = msg.get_all("To", []) or []
-
-    # Subject
     subject = msg["Subject"] if msg["Subject"] else "No Subject"
 
     # Extract body
@@ -40,13 +28,17 @@ def parse_email(file_path):
         except:
             pass
 
-    # URLs
-    urls = re.findall(r'http[s]?://\S+', body)
+    # Extract URLs
+    urls = re.findall(r'http[s]?://[^\s"\'>]+', body)
 
-    # Attachments
+    # Extract attachments with SHA256 hash
     attachments = []
     for part in msg.iter_attachments():
-        attachments.append(part.get_filename())
+        filename = part.get_filename()
+        payload = part.get_payload(decode=True)
+        if filename and payload:
+            sha256 = hashlib.sha256(payload).hexdigest()
+            attachments.append({"filename": filename, "sha256": sha256})
 
     return {
         "from": sender,
