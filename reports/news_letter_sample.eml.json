@@ -1,0 +1,11 @@
+{
+    "from": "newsletter@trustedvendor.com",
+    "to": [
+        "user@company.com"
+    ],
+    "subject": "Weekly Update",
+    "urls": [
+        "http://trustedvendor.com/newsletter"
+    ],
+    "attachments": []
+}
