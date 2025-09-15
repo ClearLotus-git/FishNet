@@ -1,0 +1,14 @@
+From: attacker@evil.com
+To: victim@company.com
+Subject: Urgent Invoice
+Date: Mon, 15 Sep 2025 09:00:00 -0400
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+
+<html>
+<body>
+<p>Hello,</p>
+<p>Please review the attached invoice immediately.</p>
+<a href="http://malicious.link/login">Click here to view</a>
+</body>
+</html>
