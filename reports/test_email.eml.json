@@ -1,0 +1,13 @@
+{
+    "from": "Test <test@gmail.com>",
+    "to": [
+        "Test <victim@gmail.com>"
+    ],
+    "subject": "Open Test Email",
+    "urls": [
+        "https://github.com/ClearLotus-git",
+        "https://github.com/ClearLotus-git",
+        "https://github.com/ClearLotus-git</a"
+    ],
+    "attachments": []
+}

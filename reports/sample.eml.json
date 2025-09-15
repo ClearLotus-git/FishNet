@@ -1,0 +1,11 @@
+{
+    "from": "attacker@evil.com",
+    "to": [
+        "victim@company.com"
+    ],
+    "subject": "Urgent Invoice",
+    "urls": [
+        "http://malicious.link/login"
+    ],
+    "attachments": []
+}
