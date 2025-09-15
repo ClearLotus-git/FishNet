@@ -1,0 +1,13 @@
+From: newsletter@trustedvendor.com
+To: user@company.com
+Subject: Weekly Update
+MIME-Version: 1.0
+Content-Type: text/html
+
+<html>
+<body>
+<h2>Your Weekly Update</h2>
+<p>Thank you for subscribing!</p>
+<a href="http://trustedvendor.com/newsletter">Read Online</a>
+</body>
+</html>
